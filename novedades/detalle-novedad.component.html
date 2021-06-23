@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Aprendices</title>
+    <link href="../bootstrap-5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap-5/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="detalle-novedad.component.css" rel="stylesheet">
+  </head>
+  <body>
+
+
+  <div class="container" style="max-width: 800px;">
+
+<div class="card bg-light" *ngIf="novedad">
+    <div class="card-header bg-primary text-light">DETALLE NOVEDAD</div>
+    <div class="card-body">
+      <h4 class="card-title">
+        <a [routerLink]="['/aprendices']" class="btn btn-light btn-xs">&laquo; volver</a>
+      </h4>
+  
+      <ul class="list-group my-2">
+        <li class="list-group-item list-group-item-primary">Datos del aprendiz</li>
+        <li class="list-group-item ">santiago mateuz</li>
+        <li class="list-group-item ">56465465465</li>
+        <li class="list-group-item ">email@misena.edi.co</li>
+        <li class="list-group-item ">ficha </li>
+        <li class="list-group-item ">trimestre 1</li>
+      </ul>
+
+      <ul class="list-group my-2">
+        <li class="list-group-item list-group-item-primary">Datos del Instructor ó Administrativo</li>
+        <li class="list-group-item ">perengrino lopez </li>
+        <li class="list-group-item ">{perengrino@gmail.com..</li>
+        
+      </ul>
+  
+      <ul class="list-group my-2" >
+        <li class="list-group-item list-group-item-primary">Datos de la Novedad</li>
+        <li class="list-group-item ">Titulo: un titulo</li>
+        <li class="list-group-item ">Fecha creacion: 12/05/2021</li>
+        <li class="list-group-item ">Tipo Novedad: academica</li>
+        <li class="list-group-item ">Descripcion de la novedad: Lorem ipsum dolor sit amet consectetur 
+          adipisicing elit. Distinctio harum quidem cumque deleniti ducimus saepe nostrum corporis laudantium fuga,
+           aspernatur itaque! Nisi officia iure cumque ipsum aspernatur iusto ab vitae.</li>
+      </ul>
+  
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+<script src="../bootstrap-5/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

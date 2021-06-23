@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Aprendices</title>
+    <link href="../bootstrap-5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap-5/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="novedades.component.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="card text-dark ">
+  <div class="card-header text-light bg-primary">{{ title}}</div>
+  <div class="card-body">
+    <h4 class="card-title">
+      <a [routerLink]="['/aprendices']" class="btn btn-light btn-xs">&laquo; volver</a>
+    </h4>
+    <form #novedadForm="ngForm">
+
+      <div class="form-group row mb-2" *ngIf="novedad.aprendiz">
+        <label for="aprendiz" class="col-sm-2 col-form-label">Aprendiz</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" value="un nombre de aprendiz"
+            name="aprendiz" disabled />
+        </div>
+      </div>
+
+      <div class="form-group row mb-2" *ngIf="novedad.aprendiz">
+        <label for="documento" class="col-sm-2 col-form-label">Documento</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" value="212221212 "
+            name="documento" disabled />
+        </div>
+      </div>
+
+      <div class="form-group row mb-2" *ngIf="novedad.aprendiz">
+        <label for="mail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" value="aprendiz@gmail.com"
+            name="mail" disabled />
+        </div>
+      </div>
+
+      <div class="form-group row mb-2" *ngIf="novedad.aprendiz">
+        <label for="ficha" class="col-sm-2 col-form-label">Ficha</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" value="1964701 adsi"
+            name="ficha" disabled />
+        </div>
+      </div>
+
+      <div class="form-group row mb-2" *ngIf="novedad.aprendiz">
+        <label for="trimestre" class="col-sm-2 col-form-label">Trimestre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" value="trimestre 6 "
+            name="trimestre" disabled />
+        </div>
+      </div>
+
+
+      <div class="form-group row mb-2" *ngIf="novedad.aprendiz">
+        <label for="usuario" class="col-sm-2 col-form-label">Usuario</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" value="profesor quien crea la novedad"
+            name="usuario" disabled />
+        </div>
+      </div>
+      
+
+      <div class="form-group row mb-2">
+        <label for="titulo" class="col-sm-2 col-form-label">Titulo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="novedad.titulo" name="titulo" required
+            #titulo="ngModel" />
+          <div class="alert alert-danger"
+            *ngIf="titulo.invalid && titulo.touched || titulo.invalid && novedadForm.submitted">
+            El titulo es requerido.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group-row mb-2">
+        <label for="tipoNovedad" class="col-sm-2 col-form-label">Tipo Novedad</label>
+        <div class="col-sm-6">
+          <select [compareWith]="compararTipoNovedad" class="form-select" [(ngModel)]="novedad.tipoNovedad" required
+            name="tipoNovedad" #tipoNovedad="ngModel"> <!-- style="width: 500px;" -->
+            <option [ngValue]="undefined">--- seleccionar un tipo Novedad ---</option>
+            <option *ngFor="let tipoNovedad of tipoNovedades" [ngValue]="tipoNovedad">{{tipoNovedad.nombre}}
+            </option>
+          </select>
+          <div class="alert alert-danger"
+            *ngIf="tipoNovedad.invalid && novedadForm.submitted">
+            Tipo de novedad es requerida.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label for="descripcion" class="col-sm-2 col-form-label">Descripcion</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="novedad.descripcion" name="descripcion" required
+            #descripcion="ngModel" />
+          <div class="alert alert-danger"
+            *ngIf="descripcion.invalid && descripcion.touched || descripcion.invalid && novedadForm.submitted">
+            La descripcion es requerida.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <input type="submit" value="Crear Novedad" (click)="create(novedadForm)" class="btn btn-success"/>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+<script src="../bootstrap-5/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
