@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Aprendices</title>
+    <link href="../bootstrap-5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap-5/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="form.component.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="m-0 row justify-content-center align-items-center">
+  <div class="col-auto">
+
+    
+
+    <div class="card bg-light-gray text-dark">
+      <div class="card-header bg-primary text-light">crear aprendiz</div>
+      <div class="card-body">
+
+        <h4 class="card-title">
+          <a  class="btn btn-light btn-xs">&laquo; volver</a>
+        </h4>
+
+        <div class="m-0 row justify-content-center align-items-center">
+          <div class="col-auto">
+
+            <form #aprendizForm="ngForm">
+
+              <div class="form-group-row">
+                <label for="tipoDocumento" class="col-form-label col-sm">Tipo Documento</label>
+                <div class="col-sm-6">
+                  <select  class="form-select "
+                    name="tipoDocumento" style="width: 100%;">
+                    <option >seleccionar un tipo documento</option>
+                    <option  >cc</option>
+                    <option  >ti</option>
+                    <option  >ce</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <label for="nombre" class="col-sm-2 col-form-label">Documento</label>
+                <div class="col">
+                  <input type="text" class="form-control" [(ngModel)]="aprendiz.documento" name="documento"
+                    #documento="ngModel">
+                  <div class="alert alert-danger" *ngIf="documento.invalid && (documento.dirty || documento.touched)">
+                    <div *ngIf="documento.errors.required">
+                      Documento es requerido
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <label for="nombre" class="col-form-label col-sm">Nombre</label>
+                <div class="col">
+                  <input type="text" class="form-control" [(ngModel)]="aprendiz.nombre" name="nombre" #nombre="ngModel">
+                  <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                    <div *ngIf="nombre.errors.required">
+                      Nombre es requerido
+                    </div>
+                    <div *ngIf="nombre.errors.minlength">
+                      Nombre debe tener al menos 4 caracteres
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <label for="apellido" class="col-form-label col-sm">Apellido</label>
+                <div class="col">
+                  <input type="text" class="form-control" [(ngModel)]="aprendiz.apellido" name="apellido"
+                    #apellido="ngModel">
+                  <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                    <div *ngIf="apellido.errors.required">
+                      Apellido es requerido
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <label for="email" class="col-form-label col-sm">Email</label>
+                <div class="col">
+                  <input type="email" class="form-control" [(ngModel)]="aprendiz.mail" name="email" #mail='ngModel'>
+                  <div class="alert alert-danger" *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+                    <div *ngIf="mail.errors.required">
+                      Email es requerido
+                    </div>
+                    <div *ngIf="mail.errors.email">
+                      Email debe tener un formato valido
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <label for="telefono" class="col-form-label col-sm">Telefono</label>
+                <div class="col">
+                  <input type="text" class="form-control"  name="telefono"
+                    #telefono='ngModel'>
+                  <div class="alert alert-danger" >
+                    <div *ngIf="telefono.errors.required">
+                      Telefono es requerido
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <label for="ficha" class="col-form-label col-sm">Ficha</label>
+                <div class="col-sm-4">
+                  <select  class="form-select"  name="ficha"
+                    style="width: 500px;">
+                    <option >--- seleccionar una ficha ---</option>
+                    <option >ficha 1</option>
+                    <option >ficha 1</option>
+                    <option >ficha 2</option>
+                    <option >ficha 3</option> 
+                    <option >ficha 4</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <label for="trimestre" class="col-form-label col-sm">Trimestre</label>
+                <div class="col-sm-4">
+                  <select class="form-select"
+                    name="trimestre" style="width: 500px;">
+                    <option >--- seleccionar un trimestre ---</option>
+                    <option >trimestre 1</option>
+                    <option >trimestre 2</option>
+                    <option >trimestre 3</option> 
+                    <option >trimestre 4</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="form-group row mt-4">
+                <div class="col-sm-6">
+                  <button class="btn btn-primary" role="button"  
+                   >Crear</button>
+
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+<script src="../bootstrap-5/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
